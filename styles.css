@@ -1,82 +1,117 @@
+/* @font-face rule for custom font */
 @font-face {
     font-family: "Satoshi";
-    src: url(fonts/Satoshi_Complete/Fonts/TTF/Satoshi-Variable.ttf);
-    font: bold;
+    src: url('fonts/Satoshi_Complete/Fonts/TTF/Satoshi-Variable.ttf') format('truetype');
+    font-weight: bolder; /* Define the normal weight here */
+    font-style: normal;  /* Define the normal style here */
 }
 
-body{
+/* Apply the font to the body */
+body {
     font-family: "Satoshi", sans-serif;
-    font-weight: lighter;
+    background-color: #e0e0e0;
+    overflow-x: hidden;
+    margin: auto;
+    padding: 0;
+}
+/* .Hello element fade-in setup */
+#Hello {
+    opacity: 0; /* Start with invisible text */
+    transition: opacity 2s ease-in-out; /* Smooth fade-in transition */
+    position: absolute;
+    top: 35%; /* Position vertically in the center */
+    left: 50%; /* Position horizontally in the center */
+    transform: translate(-50%, -50%); /* Ensure perfect centering */
+    text-align: center;
+    font-size: 10em;
+    color: #e0e0e0;
+    line-height: 1.2; /* Adjust line-height to make the text more readable */
+    z-index: 2;
+}
+/* The dot element with mix-blend mode */
+.dot {
+    opacity: 1;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    height: 2000px;
+    width: 2000px;
     background-color: #1f1f1f;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.Name{
+    font-size: 9em;
+    white-space: nowrap;
+    position: relative;
+    text-align: right;
+    color: white;
+    margin-top: 1900px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding-left: 4em;
+    z-index: 2;
+}
+
+@keyframes infiniteScroll {
+    from {transform: translateX(0)}
+    to {transform: translateX(-132.5%)} /*Adjust this to ensure smooth transition*/
+  }
+.marquee {
+    width: 100%;
     overflow-x: hidden;
 }
-
-.name{
-    left: 0;
-    line-height: 200px;
-    margin-top: -250px;
+.scroll-items {
+    display: flex;
+    animation-name: infiniteScroll;
+    animation-duration: 10s; /* Adjust for scrollspeed*/
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#photo-me{
+    max-width: 100%;
     position: absolute;
-    text-align: center;
-    top: 50%;
-    width: 100%;
-    color: #e0e0e0;
-    line-height: 0.9;
-    font-size: 10em;
-}
-
-.last-name{
-    color: #e0e0e0;
-    display: block;
-    margin-top: -0.0em; /* Adjust this value to bring it closer */
-}
-
-.section{
-    color: #e0e0e0;
-}
-
-.dot{
-    margin-left: 53.5%;
-    margin-top: -7%;
-    height: 1000px;
-    width: 1000px;
-    background-color: #e0e0e0;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    mix-blend-mode: difference;
+    top: 113%;
     z-index: 0;
 }
-
-.buttons{
+#placeholder{
+    font-size: 9em;
     text-align: center;
+    white-space: nowrap;
+    color: #1f1f1f;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin-top: 1000px;
+}
+
+#down-arrow{
+    opacity: 0; /* Start with invisible text */
+    transition: opacity 2s ease-in-out, color 0.5s ease-in-out; /* Smooth fade-in transition */
+    outline: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 35%; /* Position vertically in the center */
+    left: 50%; /* Position horizontally in the center */
+    transform: translate(-50%, -50%); /* Ensure perfect centering */
+    text-align: center;
+    font-size: 10em;
     color: #e0e0e0;
-    margin-top: 35%;
-    font-size: 3em;
+    line-height: 1.2; /* Adjust line-height to make the text more readable */
+    margin-top: 350px;
+    z-index: 2;
 }
 
-/* Hover effect for About Me and Project buttons */
-.buttons span {
-    cursor: pointer;
-    transition: color 0.3s ease;
+#down-arrow:hover{
+    color: rgb(150, 150, 150);
 }
 
-.buttons #aboutme-button:hover {
-    color: #FF6347; /* Change to desired color on hover */
-}
-
-.buttons #projects-button:hover {
-    color: #4682B4; /* Change to desired color on hover */
-}
-
-.buttons #contact-button:hover{
-    color: #FFD700;
-}
-
-#aboutme-section{
-    margin-top: 300px;
-    font-size: 4em;
-}
-#projects-section{
-    margin-top: 600px;
-    font-size: 4em;
+.remove-scrolling{
+    overflow-y: hidden;
 }
