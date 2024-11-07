@@ -19,4 +19,6 @@ document.getElementById("down-arrow").addEventListener("click", function() {
     document.getElementsByClassName("Name")[0].scrollIntoView({
         behavior: "smooth"
     });
+    document.getElementById("circle").style.opacity = 1;
 });
+

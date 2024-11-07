@@ -14,6 +14,8 @@ body {
     margin: auto;
     padding: 0;
 }
+
+
 /* .Hello element fade-in setup */
 #Hello {
     opacity: 0; /* Start with invisible text */
@@ -93,6 +95,7 @@ body {
 #down-arrow{
     opacity: 0; /* Start with invisible text */
     transition: opacity 2s ease-in-out, color 0.5s ease-in-out; /* Smooth fade-in transition */
+    transition-delay: 2s;
     outline: none;
     border: none;
     background-color: transparent;
@@ -114,4 +117,20 @@ body {
 
 .remove-scrolling{
     overflow-y: hidden;
+}
+
+.circle {
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    width: 70px;
+    height: 70px;
+    background-color: #1f1f1f;  /* Change to your desired color */
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    
+    transition: opacity 1s ease-in-out;
+     transition-delay: 1s;
+    z-index: 3;
 }
